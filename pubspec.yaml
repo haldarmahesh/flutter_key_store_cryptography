@@ -1,8 +1,7 @@
-name: cipher
+name: flutter_key_store_cryptography
 description: The keystore management and signing package
-version: 0.0.1
-author:
-homepage:
+version: 1.0.0
+homepage: http://www.maheshhaldar.com
 
 environment:
   sdk: ">=2.1.0 <3.0.0"

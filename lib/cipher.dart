@@ -1,8 +1,8 @@
 import 'dart:async';
 
-import 'package:cipher/call_method_type_enum.dart';
-import 'package:cipher/cipher_utils.dart';
-import 'package:cipher/exception_message_constant.dart';
+import './call_method_type_enum.dart';
+import './cipher_utils.dart';
+import './exception_message_constant.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/services.dart';
 

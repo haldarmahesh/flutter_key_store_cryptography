@@ -1,5 +1,5 @@
-import 'package:cipher/cipher.dart';
-import 'package:cipher/exception_message_constant.dart';
+import 'package:flutter_key_store_cryptography/cipher.dart';
+import 'package:flutter_key_store_cryptography/exception_message_constant.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_test/flutter_test.dart';
 

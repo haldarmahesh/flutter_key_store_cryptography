@@ -1,4 +1,4 @@
-import 'package:cipher/cipher_utils.dart';
+import 'package:flutter_key_store_cryptography/cipher_utils.dart';
 import 'package:flutter_test/flutter_test.dart';
 
 void main() {
