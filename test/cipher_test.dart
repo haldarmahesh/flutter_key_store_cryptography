@@ -7,7 +7,7 @@ void main() {
   TestWidgetsFlutterBinding.ensureInitialized();
 
   String defaultPublicKey = 'PUBLIC_KEY';
-  String defaultEncrptedValue = 'ENCRYPTED-XX';
+  String defaultEncrptedValue = 'SIGNED-XX';
   group(
     'Cipher',
     () {
@@ -61,13 +61,13 @@ void main() {
           });
 
           test(
-            'should return a valid encrypted data from platform',
+            'should return a valid signed data from platform',
             () async {
               // when
-              final String encrypted = await Cipher.encrypt('some  data');
+              final String signed = await Cipher.sign('some  data');
 
               // then
-              expect(encrypted, 'ENCRYPTED-XX');
+              expect(signed, 'SIGNED-XX');
             },
           );
 
@@ -75,15 +75,15 @@ void main() {
             'should return single line value when multiline value is returned',
             () async {
               // given
-              defaultEncrptedValue = 'encryptedLine1'
-                  'encryptedLine2\nencryptedLine3';
+              defaultEncrptedValue = 'signedLine1'
+                  'signedLine2\nsignedLine3';
               expect(defaultPublicKey.contains('\n'), true);
 
               // when
-              final String encrypted = await Cipher.encrypt('some  data');
+              final String signed = await Cipher.sign('some  data');
 
               // then
-              expect(encrypted, 'encryptedLine1encryptedLine2encryptedLine3');
+              expect(signed, 'signedLine1signedLine2signedLine3');
             },
           );
           test(
@@ -108,7 +108,7 @@ void main() {
                 (MethodCall methodCall) async {
                   if (methodCall.method == 'getPublicKey') {
                     throw Exception('Error getting public key');
-                  } else if (methodCall.method == 'encrypt') {
+                  } else if (methodCall.method == 'sign') {
                     throw Exception('Error getting public key');
                   } else if (methodCall.method == 'verify') {
                     throw Exception('Error in verifying');
@@ -135,17 +135,17 @@ void main() {
           );
 
           test(
-            'should throw exception when platform cannot encrypt data',
+            'should throw exception when platform cannot sign data',
             () async {
               try {
                 // when
-                await Cipher.encrypt(null);
+                await Cipher.sign(null);
               } catch (exception) {
                 // then
                 expect(exception.runtimeType, PlatformException);
-                expect(exception.code, 'CIPHER:ENCRYPT');
+                expect(exception.code, 'CIPHER:SIGN');
                 expect(exception.message,
-                    ExceptionMessageConstant.encryptionFailed);
+                    ExceptionMessageConstant.signingFailed);
               }
             },
           );
@@ -164,7 +164,7 @@ void main() {
               }
             },
           );
-        },
+        }
       );
     },
   );

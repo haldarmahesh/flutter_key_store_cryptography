@@ -1,5 +1,5 @@
 class ExceptionMessageConstant {
-  static const encryptionFailed = 'Could not encrypt the data';
+  static const signingFailed = 'Could not sign the data with private key';
   static const verificationFailed =
       'Could not verify the plainText against signature';
   static const getPublicKeyFailed =

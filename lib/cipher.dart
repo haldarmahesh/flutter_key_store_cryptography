@@ -26,18 +26,18 @@ class Cipher {
     }
   }
 
-  /// encrypt the data using the private key from keystore
-  static Future<String> encrypt(String plainData) async {
-    const String encryptTag = 'ENCRYPT';
+  /// sign the data using the private key from keystore
+  static Future<String> sign(String plainData) async {
+    const String signTag = 'SIGN';
     try {
-      final String encryptedData = await _channel.invokeMethod(
+      final String signedData = await _channel.invokeMethod(
           describeEnum(CallMethodType.encrypt), plainData);
-      final formatedEncryptedData = CipherUtils.removeNewLines(encryptedData);
-      return formatedEncryptedData;
+      final formatedSignedData = CipherUtils.removeNewLines(signedData);
+      return formatedSignedData;
     } catch (exception) {
       throw PlatformException(
-          code: '$_packageTag:$encryptTag',
-          message: ExceptionMessageConstant.encryptionFailed,
+          code: '$_packageTag:$signTag',
+          message: ExceptionMessageConstant.signingFailed,
           details: exception);
     }
   }
