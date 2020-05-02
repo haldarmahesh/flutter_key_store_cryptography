@@ -1,0 +1,20 @@
+name: cipher
+description: The keystore management and signing package
+version: 0.0.1
+author:
+homepage:
+
+environment:
+  sdk: ">=2.1.0 <3.0.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+flutter:
+  plugin:
+    androidPackage: com.plugin.flutter.cryptography.key_store
+    pluginClass: CipherPlugin
