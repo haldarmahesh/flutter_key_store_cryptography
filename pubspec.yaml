@@ -1,7 +1,7 @@
 name: flutter_key_store_cryptography
 description: The keystore management and signing package
 version: 1.0.0
-homepage: http://www.maheshhaldar.com
+homepage: https://github.com/haldarmahesh/flutter_key_store_cryptography
 
 environment:
   sdk: ">=2.1.0 <3.0.0"
